@@ -1,0 +1,112 @@
+var poem = {
+  'author': 'T.S. Eliot',
+  'title':  'The Love Song of J. Alfred Prufrock',
+  'text': 
+  [
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    },
+    {
+      verse:  1,
+      length: 1,
+      enter:  'testEnter',
+      exit:   'testExit',
+      text:   '',
+    }
+  ]
+};
