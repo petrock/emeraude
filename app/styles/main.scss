@@ -75,17 +75,24 @@ body {
 }
 
 .text-overlay {
-  position: absolute;
+  position: relative;
   margin: auto;
   background-color: #fff;
-  opacity:0.80;
+  opacity:0.90;
   top: 400px;
   min-width: 500px;
-  min-height: 300px;
+  height: 300px;
   margin: auto;
 }
 
-.absolute-center {
+.line {
+  color: #c0441f;
+}
+
+.text-center {
+  height: 90%;
+  width: 70%;
+  overflow: auto;
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
