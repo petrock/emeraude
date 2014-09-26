@@ -1,10 +1,11 @@
 function changeVerse(verseNum) {
-  var verseOne = _.filter(poem.text, function(text) {return text.verse === verseNum});
-  console.log(verseOne);
+  var verse = _.filter(poem.text, function(text) {return text.verse === verseNum});
+  console.log(verse);
   d3.select('.text').selectAll('div')
-      .data(verseOne)
+      .data(verse)
     .enter().append('div').attr('class', 'line')
       .text(function(d) {return d.text;});
 }
 
-changeVerse(2);
+changeVerse(1);
+
