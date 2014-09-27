@@ -9,7 +9,7 @@ function changeVerse(verseNum) {
 function repeatXTimes(callback, delay, repetitions) {
   var x = 0;
   var intervalId = window.setInterval(function() {
-    callback();
+    callback(x);
 
     if (++x === repetitions) {
       window.clearInterval(intervalId);
@@ -19,7 +19,7 @@ function repeatXTimes(callback, delay, repetitions) {
 
 changeVerse(1);
 
-repeatXTimes(function () {
+repeatXTimes(function (x) {
   d3.select('div.face')
     .transition()
     .duration(200)
@@ -28,17 +28,17 @@ repeatXTimes(function () {
   function faceMove() {
     var face = d3.select(this);
     var pos = face.style('background-position').split(" ");
-    var pos = _.transform(pos, function(result, posStr) {
-      if (posStr === '-20px') {
-        return result.push(posStr);
-      }
-    });
-    console.log(pos);
-    face.transition().duration(200)
-      .style('background-position', '5px 20px')
+    var posX = parseInt(pos[0].replace(/px/i, ''));
+    var posY = pos[1];
+    if (x%2 == 0) {
+      posX = posX + 15
+    } else {
+      posX = posX - 25
+    }
+    face.transition().duration(20)
+      .style('background-position', posX + 'px ' + posY)
   }
-}, 1000, 7);
+}, 30, 7);
 
 repeatXTimes(function () {
-  console.log('other');
 }, 1000, 3);
