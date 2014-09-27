@@ -11,7 +11,7 @@ function repeatXTimes(callback, delay, repetitions) {
   var intervalId = window.setInterval(function() {
     callback();
 
-    if (++x === 5) {
+    if (++x === repetitions) {
       window.clearInterval(intervalId);
     }
   }, delay);
@@ -20,6 +20,25 @@ function repeatXTimes(callback, delay, repetitions) {
 changeVerse(1);
 
 repeatXTimes(function () {
-  console.log('mk');
-}, 1000, 5);
+  d3.select('div.face')
+    .transition()
+    .duration(200)
+    .each(faceMove);
 
+  function faceMove() {
+    var face = d3.select(this);
+    var pos = face.style('background-position').split(" ");
+    var pos = _.transform(pos, function(result, posStr) {
+      if (posStr === '-20px') {
+        return result.push(posStr);
+      }
+    });
+    console.log(pos);
+    face.transition().duration(200)
+      .style('background-position', '5px 20px')
+  }
+}, 1000, 7);
+
+repeatXTimes(function () {
+  console.log('other');
+}, 1000, 3);
