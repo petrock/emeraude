@@ -23,22 +23,27 @@ repeatXTimes(function (x) {
   d3.select('div.face')
     .transition()
     .duration(200)
-    .each(faceMove);
+    .each(moveFace);
 
-  function faceMove() {
+  function moveFace() {
     var face = d3.select(this);
     var pos = face.style('background-position').split(" ");
     var posX = parseInt(pos[0].replace(/px/i, ''));
+    var origX = posX;
+    console.log(x + ' - ' + origX);
     var posY = pos[1];
-    if (x%2 == 0) {
-      posX = posX + 15
+    if (x === 6) { 
+      posX = origX
+    } else if (x % 2 === 0) {
+      posX = origX + 25
     } else {
-      posX = posX - 25
+      posX = origX - 25
     }
     face.transition().duration(20)
       .style('background-position', posX + 'px ' + posY)
   }
-}, 30, 7);
+}, 70, 7);
 
 repeatXTimes(function () {
 }, 1000, 3);
+
