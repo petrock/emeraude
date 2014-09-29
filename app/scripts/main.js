@@ -1,3 +1,9 @@
+// get original position of face backgound image
+// this should auto-inspect and build a position object
+var faceBackgroundPos = d3.select('.face').style('background-position').split(" ");
+var faceBackgroundX = parseInt(faceBackgroundPos[0].replace(/px/i, ''));
+var faceBackgroundY = parseInt(faceBackgroundPos[1].replace(/px/i, ''));
+
 function changeVerse(verseNum) {
   var verse = _.filter(poem.text, function(text) {return text.verse === verseNum});
   var lines = d3.select('.text').selectAll('div')
@@ -6,7 +12,7 @@ function changeVerse(verseNum) {
       .text(function(d) {return d.text;});
 }
 
-function repeatXTimes(callback, delay, repetitions) {
+function repeatXTimes(callback, repetitions) {
   var x = 0;
   var intervalId = window.setInterval(function() {
     callback(x);
@@ -14,36 +20,34 @@ function repeatXTimes(callback, delay, repetitions) {
     if (++x === repetitions) {
       window.clearInterval(intervalId);
     }
-  }, delay);
+  });
 }
 
-changeVerse(1);
-
 repeatXTimes(function (x) {
+  var xDistance = 25;
+
   d3.select('div.face')
     .transition()
-    .duration(200)
+    .duration(10)
+    .delay(50)
     .each(moveFace);
 
   function moveFace() {
     var face = d3.select(this);
-    var pos = face.style('background-position').split(" ");
-    var posX = parseInt(pos[0].replace(/px/i, ''));
-    var origX = posX;
-    console.log(x + ' - ' + origX);
-    var posY = pos[1];
     if (x === 6) { 
-      posX = origX
+      posX = faceBackgroundX
     } else if (x % 2 === 0) {
-      posX = origX + 25
+      posX = faceBackgroundX + xDistance;
     } else {
-      posX = origX - 25
+      posX = faceBackgroundX - xDistance;
     }
-    face.transition().duration(20)
-      .style('background-position', posX + 'px ' + posY)
+    face.transition()
+      .style('background-position', posX + 'px ' + faceBackgroundY + 'px')
   }
-}, 70, 7);
+}, 7);
 
 repeatXTimes(function () {
 }, 1000, 3);
+
+changeVerse(1);
 
