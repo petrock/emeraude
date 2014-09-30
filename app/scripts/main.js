@@ -7,9 +7,19 @@ var faceBackgroundY = parseInt(faceBackgroundPos[1].replace(/px/i, ''));
 function changeVerse(verseNum) {
   var verse = _.filter(poem.text, function(text) {return text.verse === verseNum});
   var lines = d3.select('.text').selectAll('div')
-      .data(verse)
+    .data(verse)
     .enter().append('div').attr('class', 'line')
-      .text(function(d) {return d.text;});
+    .text(function(d) {return d.text;});
+}
+
+function highlightText() {
+  var currentLines = d3.selectAll('div.line')
+    .each(function(d) {
+      var time = d.length * 1000;
+      setTimeout(function() {
+        console.log(d.text)
+      }, time);
+    })
 }
 
 function repeatXTimes(callback, repetitions) {
@@ -50,4 +60,4 @@ repeatXTimes(function () {
 }, 3);
 
 changeVerse(1);
-
+highlightText();
