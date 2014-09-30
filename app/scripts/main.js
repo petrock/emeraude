@@ -47,7 +47,7 @@ repeatXTimes(function (x) {
 }, 7);
 
 repeatXTimes(function () {
-}, 1000, 3);
+}, 3);
 
 changeVerse(1);
 
