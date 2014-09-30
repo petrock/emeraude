@@ -14,12 +14,14 @@ function changeVerse(verseNum) {
 
 function highlightText() {
   var currentLines = d3.selectAll('div.line')
-    .each(function(d) {
-      var time = d.length * 1000;
-      setTimeout(function() {
-        console.log(d.text)
-      }, time);
-    })
+    .transition()
+    .duration(500)
+    .delay(function(d) { return d.length * 1000 })
+    .each(fadeIn);
+
+  function fadeIn() {
+      console.log('fadeIn');
+  }
 }
 
 function repeatXTimes(callback, repetitions) {
