@@ -15,12 +15,16 @@ function changeVerse(verseNum) {
 function highlightText() {
   var currentLines = d3.selectAll('div.line')
     .transition()
-    .duration(500)
-    .delay(function(d) { return d.length * 1000 })
+    .delay(function(d, i) { return i * 1000 })
     .each(fadeIn);
 
   function fadeIn() {
-      console.log('fadeIn');
+    var line = d3.select(this);
+    (function repeat() {
+      line = line.transition().duration(line.length * 1000)
+        .style('opacity', 1.0)
+        .each('end', repeat);
+    })();
   }
 }
 
