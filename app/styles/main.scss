@@ -2,9 +2,11 @@ body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+    height: 1000px;
 }
 
 .content-wrapper {
+  height: 100%;
   width: 100%;
 }
 
@@ -15,6 +17,7 @@ body {
   position: relative;
   background-color: #fff;
   min-height: 100vh;
+  height: 100%;
   width: 1389px;
   margin: auto;
 }
@@ -23,6 +26,7 @@ body {
   background-color: #fff;
   opacity:0.70;
   min-height: 100vh;
+  height: 100%;
   width: 1389px;
 }
 
