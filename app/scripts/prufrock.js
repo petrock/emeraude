@@ -6,7 +6,7 @@ var poem = {
     {
       verse:  1,
       line:  1,
-      length: 1,
+      length: 3,
       enter:  'testEnter',
       exit:   'testExit',
       text:   'Let us go then, you and I,',
@@ -22,7 +22,7 @@ var poem = {
     {
       verse:  1,
       line:  3,
-      length: 1,
+      length: 5,
       enter:  'testEnter',
       exit:   'testExit',
       text:   'Like a patient etherized upon a table;',

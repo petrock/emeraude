@@ -20,6 +20,11 @@ function highlightText() {
 
   function fadeIn() {
     var line = d3.select(this);
+    var previousLine = d3.select(this.previousSibling)
+      .transition()
+      .duration(line.length * 1000)
+      .style('opacity', 0.5);
+
     (function repeat() {
       line = line.transition().duration(line.length * 1000)
         .style('opacity', 1.0)
