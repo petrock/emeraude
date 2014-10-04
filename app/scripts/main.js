@@ -19,17 +19,16 @@ function highlightText() {
     .each(fadeIn);
 
   function fadeIn() {
+    console.log('in fadeIn')
     var line = d3.select(this);
-    var previousLine = d3.select(this.previousSibling)
-      .transition()
-      .duration(line.length * 1000)
-      .style('opacity', 0.5);
+    var previousLine = d3.select(this.previousSibling);
 
     (function repeat() {
       line = line.transition().duration(line.length * 1000)
         .style('opacity', 1.0)
         .each('end', repeat);
     })();
+
   }
 }
 
