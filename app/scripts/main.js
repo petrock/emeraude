@@ -19,10 +19,9 @@ function highlightText() {
     .each(fadeIn);
 
   function fadeIn() {
-    console.log('in fadeIn')
     var line = d3.select(this);
     var previousLine = d3.select(this.previousSibling);
-
+console.log(previousLine);
     (function repeat() {
       line = line.transition().duration(line.length * 1000)
         .style('opacity', 1.0)
