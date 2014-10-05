@@ -21,7 +21,14 @@ function highlightText() {
   function fadeIn() {
     console.log('in fadeIn')
     var line = d3.select(this);
+
     var previousLine = d3.select(this.previousSibling);
+
+    if (previousLine[0][0]) {
+    console.log(previousLine)
+      previousLine.transition().duration(5000)
+        .style('opacity', 0.5);
+    }
 
     (function repeat() {
       line = line.transition().duration(line.length * 1000)
