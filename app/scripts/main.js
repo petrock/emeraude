@@ -19,7 +19,6 @@ function highlightText() {
     .each(fadeIn);
 
   function fadeIn() {
-    console.log('in fadeIn')
     var line = d3.select(this);
 
     var previousLine = d3.select(this.previousSibling);
