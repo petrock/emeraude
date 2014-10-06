@@ -20,7 +20,6 @@ function highlightText() {
 
   function fadeIn() {
     var line = d3.select(this);
-
     var previousLine = d3.select(this.previousSibling);
 
     if (previousLine[0][0]) {
