@@ -25,6 +25,7 @@ function highlightText() {
     if (previousLine[0][0]) {
     console.log(previousLine)
       previousLine.transition().duration(5000)
+        .style('color', 'green')
         .style('opacity', 0.5);
     }
 
