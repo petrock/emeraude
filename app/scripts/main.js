@@ -32,10 +32,14 @@ function highlightText() {
     (function repeat() {
       line = line.transition().duration(line.length * 1000)
         .style('opacity', 1.0)
-        .each('end', repeat);
+        .each('end', repeat, fadeOut);
     })();
 
   }
+}
+
+function fadeOut() {
+  console.log('in fadeOut');
 }
 
 function repeatXTimes(callback, repetitions) {
