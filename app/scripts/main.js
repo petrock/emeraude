@@ -15,7 +15,7 @@ function changeVerse(verseNum) {
 function highlightText() {
   var currentLines = d3.selectAll('div.line')
     .transition()
-    .delay(function(d, i) { return i * 1000 })
+    .duration(function(d, i) { return i * 1000 })
     .each(fadeIn);
 
   function fadeIn() {
