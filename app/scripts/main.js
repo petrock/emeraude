@@ -15,31 +15,35 @@ function changeVerse(verseNum) {
 function highlightText() {
   var currentLines = d3.selectAll('div.line')
     .transition()
-    .duration(function(d, i) { return i * 1000 })
+    .delay(function(d, i) { return i * 1000 })
     .each(fadeIn);
 
   function fadeIn() {
     var line = d3.select(this);
     var previousLine = d3.select(this.previousSibling);
 
+    console.log('current line - ' + line)
+    console.log('previous line - ' + previousLine)
+
+    line.transition()
+      .duration(100)
+      .style('opacity', 1.0);
+
     if (previousLine[0][0]) {
-    console.log(previousLine)
-      previousLine.transition().duration(5000)
+      previousLine.transition().duration(500)
         .style('color', 'green')
         .style('opacity', 0.5);
     }
 
+    /* 
     (function repeat() {
       line = line.transition().duration(line.length * 1000)
         .style('opacity', 1.0)
-        .each('end', repeat, fadeOut);
+        .each('end', repeat);
     })();
+    */
 
   }
-}
-
-function fadeOut() {
-  console.log('in fadeOut');
 }
 
 function repeatXTimes(callback, repetitions) {
