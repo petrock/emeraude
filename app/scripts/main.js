@@ -25,8 +25,8 @@ function highlightText() {
 
     line.transition()
       .duration(1000)
-      .style('opacity', function() {
-        return 1.0})
+      .style('opacity', 1.0)
+      .style('color', 'green')
       .each('end', fadeOut);
 
     function fadeOut() {
@@ -34,20 +34,6 @@ function highlightText() {
         .duration(2000)
         .style('opacity', 0.5);
     }
-
-    /* 
-    if (previousLine[0][0]) {
-      previousLine.transition().duration(500)
-        .style('color', 'green')
-        .style('opacity', 0.5);
-    }
-
-    (function repeat() {
-      line = line.transition().duration(line.length * 1000)
-        .style('opacity', 1.0)
-        .each('end', repeat);
-    })();
-    */
 
   }
 }
