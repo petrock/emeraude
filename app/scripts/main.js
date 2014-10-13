@@ -33,9 +33,15 @@ function highlightText() {
       previousLine.transition()
         .duration(2000)
         .style('opacity', 0.5);
+
+    checkVerse(line);
     }
 
   }
+}
+
+function checkVerse(line) {
+  console.log(line);
 }
 
 function repeatXTimes(callback, repetitions) {
