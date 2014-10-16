@@ -42,7 +42,7 @@ function highlightText() {
 
 function checkVerse(line) {
   var currentLine = d3.select(line);
-  console.log(currentLine);
+  console.log(currentLine[0][0].verse);
 }
 
 function repeatXTimes(callback, repetitions) {
