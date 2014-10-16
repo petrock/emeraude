@@ -41,8 +41,8 @@ function highlightText() {
 }
 
 function checkVerse(line) {
-  var currentLine = d3.select(line);
-  console.log(currentLine[0][0].verse);
+  var currentLine = d3.select(line.data());
+  console.log(currentLine[0][0][0].verse);
 }
 
 function repeatXTimes(callback, repetitions) {
