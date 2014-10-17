@@ -10,12 +10,13 @@ function changeVerse(verseNum) {
     .data(verse)
     .enter().append('div').attr('class', 'line')
     .text(function(d) {return d.text;});
+  console.log(lines);
 }
 
 function highlightText() {
   var currentLines = d3.selectAll('div.line')
     .transition()
-    .delay(function(d, i) { return i * 1000 })
+    .delay(function(d, i) { return i * 10 })
     .each(fadeIn);
 
   function fadeIn() {
@@ -34,6 +35,13 @@ function highlightText() {
         .duration(2000)
         .style('opacity', 0.5);
 
+    var verseLength = currentLines[0].length;
+
+    if (line.data()[0].line === verseLength) {
+      var currentVerse = line.data()[0].verse;
+  console.log(currentVerse + 1);
+      changeVerse(currentVerse + 1);
+    }
     checkVerse(line);
     }
 
@@ -42,7 +50,7 @@ function highlightText() {
 
 function checkVerse(line) {
   var currentLine = d3.select(line.data());
-  console.log(currentLine[0][0][0].verse);
+  // console.log(currentLine[0][0][0].verse);
 }
 
 function repeatXTimes(callback, repetitions) {
