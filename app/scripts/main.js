@@ -6,11 +6,17 @@ var faceBackgroundY = parseInt(faceBackgroundPos[1].replace(/px/i, ''));
 
 function changeVerse(verseNum) {
   var verse = _.filter(poem.text, function(text) {return text.verse === verseNum});
+
   var lines = d3.select('.text').selectAll('div')
-    .data(verse)
-    .enter().append('div').attr('class', 'line')
+    .data(verse, function(d) {
+      
+  console.log(d);
+      return d;});
+
+  lines.enter().append('div').attr('class', 'line')
     .text(function(d) {return d.text;});
-  console.log(lines);
+
+  lines.exit().remove();
 }
 
 function highlightText() {
@@ -39,7 +45,6 @@ function highlightText() {
 
     if (line.data()[0].line === verseLength) {
       var currentVerse = line.data()[0].verse;
-  console.log(currentVerse + 1);
       changeVerse(currentVerse + 1);
     }
     checkVerse(line);
